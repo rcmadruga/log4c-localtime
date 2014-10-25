@@ -35,7 +35,7 @@ static const char version[] = "$Id$";
 #include <layout_type_basic_r.h>
 #include <layout_type_dated_r.h>
 
-#if defined(__LOG4C_DEBUG__) && defined(__GLIBC__)
+#if defined(__LOG4C_DEBUG__) && defined(HAVE_MCHECK_H)
 #include <mcheck.h>
 #endif
 
@@ -100,7 +100,7 @@ extern int log4c_init(void)
     sd_debug("log4c_init[");
   
     /* activate GLIBC allocation debugging */
-#if defined(__LOG4C_DEBUG__) && defined(__GLIBC__)
+#if defined(__LOG4C_DEBUG__) && defined(HAVE_MCHECK_H)
     mtrace();
 #endif
   
@@ -280,7 +280,7 @@ extern int log4c_fini(void)
 	log4c_dump_all_instances(stderr);
     }
 #endif
-#if defined(__LOG4C_DEBUG__) && defined(__GLIBC__)
+#if defined(__LOG4C_DEBUG__) && defined(HAVE_MCHECK_H)
     muntrace();
 #endif
   
