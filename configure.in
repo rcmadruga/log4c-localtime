@@ -38,6 +38,7 @@ AC_DEFINE(_GNU_SOURCE,1,"POSIXandGNU extensions")
 #.
 AC_PROG_YACC
 AC_PROG_CC
+AC_PROG_CXX
 AC_PROG_CPP
 AM_PROG_LEX
 AC_PROG_AWK
@@ -46,6 +47,8 @@ AC_PROG_LN_S
 AC_PROG_MAKE_SET
 AC_PROG_RANLIB
 AC_PROG_LIBTOOL
+
+AM_CONDITIONAL([USE_CXX], [test "$ac_cv_prog_CXX" != "no"])
 
 # platform idioms
 case "$host" in
