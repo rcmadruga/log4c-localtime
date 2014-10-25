@@ -267,10 +267,12 @@ extern int log4c_fini(void)
 	log4c_layout_factory = NULL;
     }
   
+#ifdef WITH_ROLLINGFILE
     if (log4c_rollingpolicy_factory) {
 	sd_factory_delete(log4c_rollingpolicy_factory);
 	log4c_rollingpolicy_factory = NULL;
     }
+#endif
     
 #ifdef __SD_DEBUG__
     if( getenv("SD_DEBUG")){
