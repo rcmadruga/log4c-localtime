@@ -3,7 +3,11 @@ INCLUDES = \
 	-DSRCDIR="\"$(srcdir)\""
 
 noinst_PROGRAMS = test_category test_rc bench bench_fwrite \
-	test_stream2 test_layout_r cpp_compile_test
+	test_stream2 test_layout_r
+
+if USE_CXX
+noinst_PROGRAMS += cpp_compile_test
+endif
 
 if WITH_ROLLINGFILE
 noinst_PROGRAMS += test_rollingfile_appender test_rollingfile_appender_mt
